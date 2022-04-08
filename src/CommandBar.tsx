@@ -87,8 +87,9 @@ const _items: ICommandBarItemProps[] = [
     iconProps: { iconName: 'Read' },
     href: 'https://developer.microsoft.com/en-us/fluentui',
   },
-  { key: 'share', text: 'Update', iconProps: { iconName: 'Share' }, onClick: () => console.log('Share') },
-  { key: 'download', text: 'Create', iconProps: { iconName: 'Download' }, onClick: () => console.log('Download') },
+  { key: 'share', text: 'Update', iconProps: { iconName: 'Share' } },
+  { key: 'download', text: 'Create', iconProps: { iconName: 'Download' } },
+
 ];
 
 
