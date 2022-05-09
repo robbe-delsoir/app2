@@ -10,13 +10,15 @@ import {
 } from '@fluentui/react/lib/ContextualMenu';
 import { getTheme, concatStyleSets } from '@fluentui/react/lib/Styling';
 import { memoizeFunction } from '@fluentui/react/lib/Utilities';
+import { uPrinceTheme } from './Theme';
+
 
 const theme = getTheme();
 // Styles for both command bar and overflow/menu items
 const itemStyles: Partial<IContextualMenuItemStyles> = {
   label: { fontSize: 18 },
-  icon: { color: theme.palette.red },
-  iconHovered: { color: theme.palette.redDark },
+  icon: { color: uPrinceTheme.palette.themePrimary },
+  iconHovered: { color: uPrinceTheme.palette.themeSecondary },
 };
 // For passing the styles through to the context menus
 const menuStyles: Partial<IContextualMenuStyles> = {
@@ -66,6 +68,7 @@ const overflowProps: IButtonProps = {
 export const CommandBarButtonAsExample: React.FunctionComponent = () => {
   return (
     <CommandBar
+      
       overflowButtonProps={overflowProps}
       // Custom render all buttons
       buttonAs={CustomButton}
@@ -88,7 +91,7 @@ const _items: ICommandBarItemProps[] = [
     href: 'https://developer.microsoft.com/en-us/fluentui',
   },
   { key: 'share', text: 'Update', iconProps: { iconName: 'Share' } },
-  { key: 'download', text: 'Create', iconProps: { iconName: 'Download' } },
+  { key: 'download', text: 'Delete', iconProps: { iconName: 'Delete' } },
 
 ];
 
