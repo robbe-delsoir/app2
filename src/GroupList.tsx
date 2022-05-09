@@ -213,7 +213,6 @@ class GroupedList extends React.Component<
           <Toggle
             label="Enable compact mode"
             checked={isCompactMode}
-            
             onText="Compact"
             offText="Normal"
             styles={controlStyles}

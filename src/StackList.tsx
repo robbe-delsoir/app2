@@ -7,7 +7,7 @@ import { uPrinceTheme } from './Theme';
 const stackStyles: IStackStyles = {
   root: {
     background: DefaultPalette.themeTertiary,
-    height: 100,
+    height: 40,
   },
 };
 const stackItemStyles: IStackItemStyles = {
@@ -17,7 +17,8 @@ const stackItemStyles: IStackItemStyles = {
     color: uPrinceTheme.palette.white,
     display: 'flex',
     justifyContent: 'left',
-    padding: 10,
+    padding: 10
+
   },
 };
 
@@ -28,16 +29,16 @@ const innerStackTokens: IStackTokens = {
   padding: 0,
 };
 
-export const VerticalStackGrowExample: React.FunctionComponent = () => {
+export const VerticalStackList: React.FunctionComponent = () => {
   return (
     <Stack tokens={outerStackTokens}>
       <Stack styles={stackStyles} tokens={innerStackTokens}>
         <Stack.Item grow={2} styles={stackItemStyles} >
-            UPrince main window
+            List of textboxes
         </Stack.Item>
       </Stack>
     </Stack>
   );
 };
 
-export default VerticalStackGrowExample;
+export default VerticalStackList;
