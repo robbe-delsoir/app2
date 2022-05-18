@@ -81,23 +81,23 @@ export interface IDocument {
 }
 
 
-async function fetchData() {
+// async function fetchData() {
   
-  const [products, setProducts] = useState([]);
+//   const [products, setProducts] = useState([]);
 
-  const fetchProducts = async () => {
-    const { data } = await Axios.get(
-      "https://jsonplaceholder.typicode.com/todos/"
-    );
-    const products = data;
-    setProducts(products);
-    console.log(products);
-  };
+//   const fetchProducts = async () => {
+//     const { data } = await Axios.get(
+//       "https://apilistuprincerestapi.azurewebsites.net"
+//     );
+//     const products = data;
+//     setProducts(products);
+//     console.log(products);
+//   };
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-}  
+//   useEffect(() => {
+//     fetchProducts();
+//   }, []);
+// }  
 
 class GroupedList extends React.Component<
   {},
@@ -110,7 +110,6 @@ class GroupedList extends React.Component<
 
   constructor(props: {}) {
     super(props);
-    fetchData();
 
     this._allItems = _generateDocuments();
 
@@ -196,7 +195,6 @@ class GroupedList extends React.Component<
   
 
   public render() {
-    fetchData();
 
     const {
       columns,
