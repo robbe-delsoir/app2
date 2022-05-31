@@ -11,6 +11,8 @@ import {
 import { getTheme, concatStyleSets } from '@fluentui/react/lib/Styling';
 import { memoizeFunction } from '@fluentui/react/lib/Utilities';
 import { PanelComp } from '../Panel';
+import { useBoolean } from '@fluentui/react-hooks';
+
 
 const theme = getTheme();
 // Styles for both command bar and overflow/menu items
@@ -34,11 +36,36 @@ const getCommandBarButtonStyles = memoizeFunction(
   },
 );
 
-// Custom renderer for main command bar items
+
+
+
+
+export const CommandBarButtonAsExample: React.FunctionComponent = () => {
+  const [isOpen, { setTrue: openPanel, setFalse: dismissPanel }] = useBoolean(false);
+
+
+
+  const _items: ICommandBarItemProps[] = [
+    {
+      key: 'newItem',
+      text: 'Create',
+      iconProps: { iconName: 'Add' },
+    },
+    {
+      key: 'upload',
+      text: 'Read',
+      iconProps: { iconName: 'Read' },
+      href: 'https://developer.microsoft.com/en-us/fluentui',
+    },
+    { key: 'share', text: 'Update', iconProps: { iconName: 'Share' } },
+    { key: 'download', text: 'Create', iconProps: { iconName: 'Download' } },
+  ];
+
+  // Custom renderer for main command bar items
 const CustomButton: React.FunctionComponent<IButtonProps> = props => {
   const buttonOnMouseClick = () => alert(`${props.text} clicked`);
   // eslint-disable-next-line react/jsx-no-bind
-  return <CommandBarButton {...props} onClick={buttonOnMouseClick} styles={getCommandBarButtonStyles(props.styles)} />;
+  return <CommandBarButton {...props} onClick={openPanel} styles={getCommandBarButtonStyles(props.styles)} />;
 };
 
 // Custom renderer for menu items (these must have a separate custom renderer because it's unlikely
@@ -64,7 +91,6 @@ const overflowProps: IButtonProps = {
   },
 };
 
-export const CommandBarButtonAsExample: React.FunctionComponent = () => {
   return (
     <>
     <CommandBar
@@ -74,27 +100,12 @@ export const CommandBarButtonAsExample: React.FunctionComponent = () => {
       items={_items}
       ariaLabel="Use left and right arrow keys to navigate between commands"
     />
-    <PanelComp handleOpen={} />
+    <PanelComp open={isOpen} dismissPanel={dismissPanel} />
     </>
   );
 };
 
-const _items: ICommandBarItemProps[] = [
-  {
-    key: 'newItem',
-    text: 'Create',
-    iconProps: { iconName: 'Add' },
-  },
-  {
-    key: 'upload',
-    text: 'Read',
-    iconProps: { iconName: 'Read' },
-    href: 'https://developer.microsoft.com/en-us/fluentui',
-  },
-  { key: 'share', text: 'Update', iconProps: { iconName: 'Share' } },
-  { key: 'download', text: 'Create', iconProps: { iconName: 'Download' } },
-  { key: 'open', text: 'Open Panel', iconProps: { iconName: 'OpenPane' } },
-];
+
 
 
 export default CommandBarButtonAsExample;
