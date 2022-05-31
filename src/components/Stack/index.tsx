@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Stack, IStackStyles, IStackTokens, IStackItemStyles } from '@fluentui/react/lib/Stack';
 import { DefaultPalette } from '@fluentui/react/lib/Styling';
-import { uPrinceTheme } from './Theme';
+import { uPrinceTheme } from '../Theme';
 
 // Styles definition
 const stackStyles: IStackStyles = {

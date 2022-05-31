@@ -10,6 +10,7 @@ import {
 } from '@fluentui/react/lib/ContextualMenu';
 import { getTheme, concatStyleSets } from '@fluentui/react/lib/Styling';
 import { memoizeFunction } from '@fluentui/react/lib/Utilities';
+import { PanelComp } from '../Panel';
 
 const theme = getTheme();
 // Styles for both command bar and overflow/menu items
@@ -65,6 +66,7 @@ const overflowProps: IButtonProps = {
 
 export const CommandBarButtonAsExample: React.FunctionComponent = () => {
   return (
+    <>
     <CommandBar
       overflowButtonProps={overflowProps}
       // Custom render all buttons
@@ -72,6 +74,8 @@ export const CommandBarButtonAsExample: React.FunctionComponent = () => {
       items={_items}
       ariaLabel="Use left and right arrow keys to navigate between commands"
     />
+    <PanelComp handleOpen={} />
+    </>
   );
 };
 
@@ -89,7 +93,7 @@ const _items: ICommandBarItemProps[] = [
   },
   { key: 'share', text: 'Update', iconProps: { iconName: 'Share' } },
   { key: 'download', text: 'Create', iconProps: { iconName: 'Download' } },
-
+  { key: 'open', text: 'Open Panel', iconProps: { iconName: 'OpenPane' } },
 ];
 
 
