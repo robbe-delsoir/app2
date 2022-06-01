@@ -6,17 +6,18 @@ import { uPrinceTheme } from '../Theme';
 // Styles definition
 const stackStyles: IStackStyles = {
   root: {
-    background: DefaultPalette.themeTertiary,
-    height: 100,
+    background: DefaultPalette.black,
+    height: 60,
   },
 };
 const stackItemStyles: IStackItemStyles = {
   root: {
     alignItems: 'center',
-    background: uPrinceTheme.palette.themePrimary,
+    background: uPrinceTheme.palette.black,
     color: uPrinceTheme.palette.white,
     display: 'flex',
-    justifyContent: 'left'
+    justifyContent: 'left',
+    padding: '0px 10px'
   },
 };
 
@@ -27,12 +28,16 @@ const innerStackTokens: IStackTokens = {
   padding: 0,
 };
 
-export const VerticalStackGrowExample: React.FunctionComponent = () => {
+interface IProps {
+  text:string
+}
+
+export const VerticalStackGrowExample = ({text}:IProps) => {
   return (
     <Stack tokens={outerStackTokens}>
       <Stack styles={stackStyles} tokens={innerStackTokens}>
         <Stack.Item grow={2} styles={stackItemStyles} >
-            UPrince main window
+            {text}
         </Stack.Item>
       </Stack>
     </Stack>

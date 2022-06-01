@@ -12,6 +12,8 @@ import { getTheme, concatStyleSets } from '@fluentui/react/lib/Styling';
 import { memoizeFunction } from '@fluentui/react/lib/Utilities';
 import { PanelComp } from '../Panel';
 import { useBoolean } from '@fluentui/react-hooks';
+import { IIconProps, IStackStyles, Stack } from '@fluentui/react';
+import VerticalStackGrowExample from '../Stack';
 
 
 const theme = getTheme();
@@ -36,8 +38,7 @@ const getCommandBarButtonStyles = memoizeFunction(
   },
 );
 
-
-
+const stackStyles: Partial<IStackStyles> = { root: { height: 44 ,padding:'0px 30px'} };
 
 
 export const CommandBarButtonAsExample: React.FunctionComponent = () => {
@@ -90,9 +91,19 @@ const overflowProps: IButtonProps = {
     directionalHint: DirectionalHint.topCenter,
   },
 };
+const textIcon: IIconProps = { iconName: 'Chat' };
+const powerIcon: IIconProps = { iconName: 'PowerButton' };
 
   return (
     <>
+    <Stack horizontal styles={stackStyles}>
+      <CommandBarButton
+        iconProps={textIcon}
+        text="Textbox"
+      />
+      <CommandBarButton iconProps={powerIcon} text="Button"  />
+    </Stack>
+    <VerticalStackGrowExample text="List of Textbox" />
     <CommandBar
       overflowButtonProps={overflowProps}
       // Custom render all buttons

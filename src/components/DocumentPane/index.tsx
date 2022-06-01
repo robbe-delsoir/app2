@@ -32,7 +32,7 @@ export const VerticalStackGrowExample: React.FunctionComponent = () => {
     <Stack tokens={outerStackTokens}>
       <Stack styles={stackStyles} tokens={innerStackTokens}>
         <Stack.Item grow={2} styles={stackItemStyles} >
-            
+            sdsdsd
         </Stack.Item>
       </Stack>
     </Stack>
